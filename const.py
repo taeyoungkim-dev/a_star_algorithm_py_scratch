@@ -1,0 +1,3 @@
+ROAD = 0
+WALL = 1
+GOAL = 2
