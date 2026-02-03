@@ -38,4 +38,5 @@ class MapManager:
     def is_game_end(self,coordinate)->bool:
         row,col = coordinate
         return self.__map[row][col]==const.GOAL
-    
+    def get_current_map(self):
+        return self.__map[:]
