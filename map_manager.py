@@ -39,4 +39,4 @@ class MapManager:
         row,col = coordinate
         return self.__map[row][col]==const.GOAL
     def get_current_map(self):
-        return self.__map[:]
+        return [row[:] for row in self.__map]
