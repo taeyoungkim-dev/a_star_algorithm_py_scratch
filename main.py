@@ -2,6 +2,7 @@ import map_manager
 import map_renderer
 import bfs_study
 import dfs_study
+import astar_study
 import os
 import time
 import const

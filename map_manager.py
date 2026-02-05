@@ -40,3 +40,5 @@ class MapManager:
         return self.__map[row][col]==const.GOAL
     def get_current_map(self):
         return [row[:] for row in self.__map]
+    def get_goal_pos(self):
+        return (9,9)
