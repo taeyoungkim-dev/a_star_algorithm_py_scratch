@@ -11,13 +11,23 @@ class MyHeap:
     def __init__(self):
         self.__body = []
     def __heapify(self):
-        pass
+        # r child : 2*n+1
+        # l child : 2*n+2
+        # parent : floor(log_2(n))
+        pointer = 
+        #TODO
     def get_size(self):
         return len(self.__body)
     def push(self,node:Node):
-        pass
+        self.__body.append(node)
+        self.__heapify()
     def pop(self)->Node:
-        pass
+        if self.get_size()==0:
+            raise Exception
+        self.__body[0],self.__body[self.get_size()-1] = self.__body[self.get_size()-1], self.__body[0]
+        return_value = self.__body.pop()
+        self.__heapify()
+        return return_value
 class Astar:
     def __init__(self,map_manager:map_manager.MapManager):
         self.__path_list = []
