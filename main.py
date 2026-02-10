@@ -1,29 +1,38 @@
-import map_manager
-import map_renderer
-import bfs_study
-import dfs_study
-import astar_study
 import os
 import time
+
+import bfs_study
 import const
-if __name__ == "__main__" :
+import dfs_study
+import map_manager
+import map_renderer
+
+
+ALGO = "dfs"  # "bfs" 또는 "dfs" 중 선택
+
+
+def create_algo(name: str, mm: map_manager.MapManager):
+    name = name.lower()
+    if name == "bfs":
+        return bfs_study.Bfs(mm)
+    if name == "dfs":
+        return dfs_study.Dfs(mm)
+    raise ValueError(f"Unknown algorithm: {name}")
+
+
+if __name__ == "__main__":
     map_m = map_manager.MapManager()
     map_r = map_renderer.MapRenderer()
-    #algo = bfs_study.Bfs(map_m)
-    algo = dfs_study.Dfs(map_m)
-    #algo = astar_study.Astar(map_m)
+    algo = create_algo(ALGO, map_m)
+
     while True:
-        os.system('clear')
+        os.system("clear")
         status = algo.one_step()
-        map_r.print_path(map_m,algo.get_path_list())
+        map_r.print_path(map_m, algo.get_path_list())
         if status == const.FOUND:
             print("FOUND")
             break
-        elif status == const.STUCK:
+        if status == const.STUCK:
             print("STUCK")
             break
         time.sleep(0.2)
-    #한발짝 가기
-    #print
-    #기다리기
-    

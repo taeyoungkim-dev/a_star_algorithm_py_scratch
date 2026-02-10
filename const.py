@@ -6,6 +6,11 @@ UP = 4
 DOWN = 5
 LEFT = 6
 RIGHT = 7
+
+# 검색 알고리즘 상태값
+SEARCHING = 8
+FOUND = 9
+STUCK = 10
 SEARCHING = 100
 FOUND = 101
 STUCK = 102
